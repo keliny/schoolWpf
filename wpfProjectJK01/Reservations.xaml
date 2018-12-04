@@ -14,11 +14,18 @@
             <StackPanel>
                 <TextBlock Text="Meetings Planning" FontWeight="Bold" FontSize="20"  Padding=" 0 0 0 10" />
                 <TextBlock Text="Meeting Room" FontWeight="Bold"/>
-                <ComboBox Name="MeetingCentres">
-
+                <ComboBox Name="CBMeetingCentres">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Fill="{Binding Name}"></Rectangle>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
                 <ListBox x:Name="MeetingCentresBox" Height="250" Margin="0 0 0 10" DisplayMemberPath="CentreName"
-                             SelectionChanged="MeetingCentresBox_OnSelectionChanged" />
+                             SelectionChanged="Button_Click_Default" />
                 <StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -28,10 +35,10 @@
                             <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Button x:Name="BtNewMeetingCentre" Grid.Column="0" Content="New" Margin=" 0 0 10 0"
-                                    Click="Button_Click_New_MC" />
-                        <Button x:Name="BtnEditMeetingCentre" Click="Button_Click_Edit_MC" Grid.Column="1"
+                                    Click="Button_Click_Default" />
+                        <Button x:Name="BtnEditMeetingCentre" Click="Button_Click_Default" Grid.Column="1"
                                     Content="Edit" Margin=" 0 0 10 0" />
-                        <Button x:Name="BtnDeleteMeetingCentre" Click="Button_Click_Delete_MC" Grid.Column="3"
+                        <Button x:Name="BtnDeleteMeetingCentre" Click="Button_Click_Default" Grid.Column="3"
                                     Content="Delete" Margin=" 10 0 0 0" />
                     </Grid>
                 </StackPanel>

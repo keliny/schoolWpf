@@ -22,6 +22,13 @@ namespace wpfProjectJK01
         public Reservations()
         {
             InitializeComponent();
+            CBMeetingCentres.ItemsSource = DataStore.DisplayMeetingCentres2();
+        }
+
+        private void Button_Click_Default(object sender, RoutedEventArgs e)
+        {
+
+            
         }
     }
 }
