@@ -1,0 +1,61 @@
+﻿<Window x:Class="wpfProjectJK01.Reservations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfProjectJK01"
+        mc:Ignorable="d"
+        Title="Reservations" Height="850" Width="590">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="580" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="10 10 10 10">
+            <StackPanel>
+                <TextBlock Text="Meetings Planning" FontWeight="Bold" FontSize="20"  Padding=" 0 0 0 10" />
+                <TextBlock Text="Meeting Room" FontWeight="Bold"/>
+                <ComboBox Name="MeetingCentres">
+
+                </ComboBox>
+                <ListBox x:Name="MeetingCentresBox" Height="250" Margin="0 0 0 10" DisplayMemberPath="CentreName"
+                             SelectionChanged="MeetingCentresBox_OnSelectionChanged" />
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="320" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BtNewMeetingCentre" Grid.Column="0" Content="New" Margin=" 0 0 10 0"
+                                    Click="Button_Click_New_MC" />
+                        <Button x:Name="BtnEditMeetingCentre" Click="Button_Click_Edit_MC" Grid.Column="1"
+                                    Content="Edit" Margin=" 0 0 10 0" />
+                        <Button x:Name="BtnDeleteMeetingCentre" Click="Button_Click_Delete_MC" Grid.Column="3"
+                                    Content="Delete" Margin=" 10 0 0 0" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0 20 0 0">
+                    <TextBlock Text="Meeting Centre Details" FontWeight="Bold" FontSize="20" />
+                    <TextBlock Text="Name" Padding="0 5 0 0" />
+                    <TextBox x:Name="MC_Name"
+                                 Text="{Binding ElementName=MeetingCentresBox, Path=SelectedValue.Name, Mode=TwoWay}"
+                                 IsReadOnly="True" />
+                    <TextBlock Text="Code" Padding="0 5 0 0" />
+                    <TextBox x:Name="MC_Code"
+                                 Text="{Binding ElementName=MeetingCentresBox, Path=SelectedValue.Code, Mode=TwoWay}"
+                                 IsReadOnly="True" />
+                    <TextBlock Text="Description" Padding="0 5 0 0" />
+                    <TextBox x:Name="MC_Description"
+                                 Text="{Binding ElementName=MeetingCentresBox, Path=SelectedValue.Description, Mode=TwoWay}"
+                                 IsReadOnly="True" />
+                    <TextBlock Text="Log" Padding="0 5 0 0" />
+                    <TextBox x:Name="textBox1" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+
+    </Grid>
+</Window>
