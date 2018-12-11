@@ -42,6 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -88,8 +91,17 @@
     <Compile Include="MeetingCentre.cs" />
     <Compile Include="MeetingRoom.cs" />
     <Compile Include="ObjectData.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="Reservations.xaml.cs">
+    <Compile Include="reservations\AddReservation.xaml.cs">
+      <DependentUpon>AddReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reservations\EditReservation.xaml.cs">
+      <DependentUpon>EditReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reservations\ExportToJson.cs" />
+    <Compile Include="reservations\Reservation.cs" />
+    <Compile Include="reservations\ReservationExport.cs" />
+    <Compile Include="reservations\ReservationJson.cs" />
+    <Compile Include="reservations\Reservations.xaml.cs">
       <DependentUpon>Reservations.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidationRules.cs" />
@@ -133,7 +145,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Reservations.xaml">
+    <Page Include="reservations\AddReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reservations\EditReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reservations\Reservations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

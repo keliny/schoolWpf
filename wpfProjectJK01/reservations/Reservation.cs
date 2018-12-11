@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace wpfProjectJK01
@@ -17,14 +18,39 @@ namespace wpfProjectJK01
          *
          */
         public MeetingRoom MeetingRoom { get; set; }
+        public string MRoom { get; set; }
         public DateTime Date { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
         public int ExpectedPersonsCount { get; set; }
         public string Customer { get; set; }
         public bool VideoConference { get; set; }
-        [Required(ErrorMessage = "Note is required!!!")]
         public string Note { get; set; }
+        public string DisplayInfo { get; set; }
 
+        public Reservation(MeetingRoom mRoom, DateTime date, string from, string to, int expCount, string customer, bool video, string note)
+        {
+            MeetingRoom = mRoom;
+            Date = date;
+            From = from;
+            To = to;
+            ExpectedPersonsCount = expCount;
+            Customer = customer;
+            VideoConference = video;
+            Note = note;
+            DisplayInfo = $"{from} - {to} reservation made by {Customer}.";
+        }
+
+        public Reservation(string mRoom, DateTime date, string from, string to, int expCount, string customer, bool video, string note)
+        {
+            MRoom = mRoom;
+            Date = date;
+            From = from;
+            To = to;
+            ExpectedPersonsCount = expCount;
+            Customer = customer;
+            VideoConference = video;
+            Note = note;
+        }
     }
 }

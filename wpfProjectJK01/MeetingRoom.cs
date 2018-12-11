@@ -9,7 +9,7 @@ namespace wpfProjectJK01
         public bool VideoConference { get; set; }
         public MeetingCentre MeetingCentre { get; set; }
 
-        public MeetingRoom(string name, string code, string description, int capacity, bool videoConference, MeetingCentre meetingCenter) : base(name, description, code)
+        public MeetingRoom(string name, string code, string description, int capacity, bool videoConference, MeetingCentre meetingCenter) : base(name, code, description)
         {
             Capacity = capacity;
             VideoConference = videoConference;

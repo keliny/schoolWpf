@@ -30,6 +30,7 @@ namespace wpfProjectJK01
         {
             InitializeComponent();
             MeetingCentresBox.ItemsSource = dataStore.DisplayMeetingCentres();
+            DataStore.ImportDataFromXml();
         }
 
         private void MenuItem_Click_Import(object sender, RoutedEventArgs e)
@@ -46,6 +47,7 @@ namespace wpfProjectJK01
 
         private void MenuItem_Click_Exit(object sender, RoutedEventArgs e)
         {
+            
             if (DataStore.Modified)
             {
                 var exit = new ExitCheck();
@@ -149,11 +151,8 @@ namespace wpfProjectJK01
 
         private void Button_Click_New_MC(object sender, RoutedEventArgs e)
         {
-            
-                var createMc = new CreateMC();
-                createMc.ShowDialog();
-            
-                
+            var createMc = new CreateMC();
+            createMc.ShowDialog();
         }
 
         private void Button_Click_Edit_MC(object sender, RoutedEventArgs e)
@@ -186,7 +185,8 @@ namespace wpfProjectJK01
         {
             if (MeetingCentresBox.SelectedIndex == -1)
             {
-                MessageBox.Show("No Meeting Centre selected. To create a Meeting Room please select Meeting Centre first.");
+                MessageBox.Show(
+                    "No Meeting Centre selected. To create a Meeting Room please select Meeting Centre first.");
             }
             else
             {

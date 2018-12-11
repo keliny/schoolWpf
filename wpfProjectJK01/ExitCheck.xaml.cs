@@ -26,6 +26,7 @@ namespace wpfProjectJK01
 
         private void Btn_Click_Save(object sender, RoutedEventArgs e)
         {
+            DataStore.ExportXmlEndData();
             DataStore.SaveFile();
             Application.Current.Shutdown();
 
